@@ -23,14 +23,18 @@ const callALert = {
     8: "Calling Brac (16445)",
     9: "Calling Bangladesh Railway (163)"
 }
+
+
 document.querySelectorAll(".call-btn").forEach(el=>{el.addEventListener("click",function(e){
     e.preventDefault()
+    const id = this.dataset.id
     const availablecoin = parseInt(document.getElementById("available-coin").innerText)
     if ( availablecoin <= 0 ){
-        alert("There is no coin.")
+        alert("Not enough coins.")
         return
     }
     const totalnewcoin = availablecoin - 20 
     document.getElementById("available-coin").innerText = totalnewcoin
+    alert(callALert[id])
   })
 })
