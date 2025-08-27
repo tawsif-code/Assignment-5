@@ -38,3 +38,33 @@ document.querySelectorAll(".call-btn").forEach(el=>{el.addEventListener("click",
     alert(callALert[id])
   })
 })
+
+// copy feature
+
+const copyALert = {
+    1: "999",
+    3: "999",
+    2: "999",
+    4: "1994-999999",
+    5: "109",
+    6: "106",
+    7: "16216",
+    8: "16445",
+    9: "163"
+}
+
+document.querySelectorAll(".copy-btn").forEach(el=>{el.addEventListener("click", async function(e){
+    e.preventDefault()
+    const id = this.dataset.id
+    const copiedNumber = parseInt(document.getElementById("copy").innerText)
+    try{
+        await navigator.clipboard.writeText(copyALert[id])
+        alert("The number is copied:" + copyALert[id])
+    }
+    catch (err) {
+        alert("Failed to copy.")
+    }
+    const totalCopiedNubmer = 1 + copiedNumber
+    document.getElementById("copy").innerText = totalCopiedNubmer
+  })
+})
